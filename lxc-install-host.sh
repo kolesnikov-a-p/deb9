@@ -4,8 +4,6 @@ apt install lxc lxctl bridge-utils ntpdate ntp psmisc mc htop iptables iputils-p
 
 echo "AuthorizedKeysFile     .ssh/authorized_keys" >> /etc/ssh/sshd_config
 
-mkdir ~/.ssh && nano authorized_keys
-
 echo "*filter
 -A INPUT -i lo -j ACCEPT
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
