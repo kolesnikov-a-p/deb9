@@ -71,6 +71,15 @@ if [[ "$B" = "y" ]]
 then
 echo "Установка пакетов"
 apt install lxc lxctl bridge-utils
+
+echo "
+auto br0
+iface br0 inet static
+bridge-ports enp0s3
+address 172.23.4.200
+gateway 172.23.4.1
+netmask 255.255.255.0" >> /etc/network/interfaces
+nano /etc/network/interfaces
 lxc-checkconfig
 fi
 
