@@ -2,7 +2,7 @@
 
 apt install lxc lxctl bridge-utils ntpdate ntp psmisc mc htop iptables iputils-ping
 
-echo "AuthorizedKeysFile     .ssh/authorized_keys" >> /etc/ssh/sshd_config
+sudo sh -c 'echo "AuthorizedKeysFile     .ssh/authorized_keys" >> /etc/ssh/sshd_config' && mkdir ~/.ssh && nano ~/.ssh/authorized_keys
 
 echo "*filter
 -A INPUT -i lo -j ACCEPT
