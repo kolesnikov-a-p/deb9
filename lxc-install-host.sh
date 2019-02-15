@@ -9,7 +9,7 @@ fi
 echo "Обновление системы"
 apt update && apt upgrade
 echo "Установка пакетов"
-apt install ntpdate ntp psmisc mc htop iputils-ping needrestart git ca-certificates wget
+apt install ntpdate ntp psmisc mc htop iputils-ping needrestart git ca-certificates wget tzdata
 
 echo "========================================"
 echo "Установить iptables (y - да, n - нет)"
