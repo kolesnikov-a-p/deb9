@@ -24,11 +24,28 @@ echo "*filter
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 -A OUTPUT -j ACCEPT
--A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
--A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT" > /etc/iptables.test.rules
+
+echo "========================================"
+echo "Какие порты открыть ?"
+echo "1-(22), 2-(22 80), 3-(22 80 443)"
+read B
+
+if [[ "$B" = "2" ]]
+then
+echo "-A INPUT -p tcp -m state --state NEW --dport 80 -j ACCEPT" >> /etc/iptables.test.rules
+fi
+if [[ "$B" = "3" ]]
+then
+echo "-A INPUT -p tcp -m state --state NEW --dport 80 -j ACCEPT" >> /etc/iptables.test.rules
+echo "-A INPUT -p tcp -m state --state NEW --dport 443 -j ACCEPT" >> /etc/iptables.test.rules
+fi
+
+echo "-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 -A INPUT -j REJECT
 -A FORWARD -j REJECT
-COMMIT" > /etc/iptables.test.rules
+COMMIT" >> /etc/iptables.test.rules
+
 iptables-restore < /etc/iptables.test.rules && iptables-save > /etc/iptables.up.rules
 echo "#!/bin/sh" > /etc/network/if-pre-up.d/iptables
 echo "/sbin/iptables-restore < /etc/iptables.up.rules" >> /etc/network/if-pre-up.d/iptables
