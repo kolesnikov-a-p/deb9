@@ -4,6 +4,7 @@
 
 ```git clone https://github.com/kolesnikov-a-p/deb9.git && cd deb9 && sudo bash lxc-install-host.sh```
 
-```mkdir ~/.ssh && nano ~/.ssh/authorized_keys```
+```# Отключение проверки пароля для sudo
+username ALL=(ALL:ALL) NOPASSWD: ALL```
 
 
