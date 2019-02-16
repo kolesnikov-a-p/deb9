@@ -32,8 +32,8 @@ echo "#!/bin/sh" > /etc/network/if-pre-up.d/iptables
 echo "/sbin/iptables-restore < /etc/iptables.up.rules" >> /etc/network/if-pre-up.d/iptables
 chmod +x /etc/network/if-pre-up.d/iptables
 
-passwd -d root
+passwd -l root
 
 rm ./setting.sh
-
+exit
 exit 0
