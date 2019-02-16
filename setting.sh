@@ -34,7 +34,8 @@ chmod +x /etc/network/if-pre-up.d/iptables
 
 passwd -l root
 
-sed -i "s/#bash /root/setting.sh && exit#/echo " /root/.bashrc
+grep -v 'bash /root/setting.sh && exit' /root/.bashrc > /root/.bashrc.tmp
+rm /root/.bashrc && mv /root/.bashrc.tmp /root/.bashrc
 
 rm ./setting.sh
 
