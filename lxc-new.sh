@@ -30,4 +30,6 @@ echo "127.0.0.1   " $VMNAME >> /var/lib/lxc/$VMNAME/rootfs/etc/hosts
 cp ./setting.sh /var/lib/lxc/$VMNAME/rootfs/root/setting.sh
 chmod +x /var/lib/lxc/$VMNAME/rootfs/root/setting.sh
 
+lxc-start -n $VMNAME
+lxc-console -n $VMNAME
 exit 0
