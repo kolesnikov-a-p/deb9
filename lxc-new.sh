@@ -10,7 +10,7 @@ read VMNAME
 
 lxc-create -n $VMNAME -t debian
 
-chroot /var/lib/lxc/$VMNAME/rootfs/ passwd
+chroot /var/lib/lxc/$VMNAME/rootfs/ passwd -d root
 
 echo "# lxc.start.auto = 1" >> /var/lib/lxc/$VMNAME/config
 echo "lxc.network.type  = veth" >> /var/lib/lxc/$VMNAME/config
