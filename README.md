@@ -4,6 +4,8 @@
 
 ```git clone https://github.com/kolesnikov-a-p/deb9.git && cd deb9 && sudo bash lxc-install-host.sh```
 
+```git clone https://github.com/kolesnikov-a-p/deb9.git && cd deb9 && sudo bash lxc-install-auto.sh```
+
 ### Авторизация по ключу
 
 ```sudo sh -c 'echo "AuthorizedKeysFile     .ssh/authorized_keys" >> /etc/ssh/sshd_config' && mkdir ~/.ssh && nano ~/.ssh/authorized_keys```
